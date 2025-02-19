@@ -1,5 +1,5 @@
 {
-  "name": "miniproject1",
+  "name": "vite_tailwind4",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.0.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.5",
+    "tailwindcss": "^4.0.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
@@ -23,6 +26,6 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
-    "vite": "^0.10.3"
+    "vite": "^6.1.0"
   }
 }

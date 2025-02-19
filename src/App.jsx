@@ -1,3 +1,4 @@
+
 import './App.css';
 import {useState, createContext} from "react" //Step 1
 import {BrowserRouter, Routes,Route} from "react-router-dom";
@@ -10,8 +11,6 @@ export const DataContext=createContext(""); //Step3
 export default function App() {
   const [logStatus,setLogStatus]=useState(0); //Step4
   const [booklist,setBookList]=useState(books); //Step 5
-  console.log("This got logged");
-
   return (
     <div>
     <DataContext.Provider value={{logStatus:logStatus, setLogStatus:setLogStatus,

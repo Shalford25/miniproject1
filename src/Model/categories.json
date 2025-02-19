@@ -1,0 +1,25 @@
+{
+    "books": [
+      {
+        "id": 1,
+        "category": "Fiction"
+      },
+      {
+        "id": 2,
+        "category": "Dystopian"
+      },
+      {
+        "id": 3,
+        "category": "Romance"
+      },
+      {
+        "id": 4,
+        "category": "Classic"
+      },
+      {
+        "id": 5,
+        "category": "Adventure"
+      }
+    ]
+  }
+  
