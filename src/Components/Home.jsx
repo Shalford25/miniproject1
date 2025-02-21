@@ -14,7 +14,7 @@ export default function Home(){
         </ul>
         </div>
 
-        <div className="column bg-gray-50 h-[120vh]"><h1>Column 2</h1>
+        <div className="column bg-gray-50 h-[120vh]"><h1 class="headertext">Image Descriptions</h1>
         <img src={hoveredImage} alt="Hovered Image" class="center"/>
         </div>
       </div> 
