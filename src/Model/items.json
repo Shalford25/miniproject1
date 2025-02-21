@@ -1,0 +1,34 @@
+{
+    "items" : [
+        {
+          "id": 1,
+          "item": "Blue Notebook",
+          "category": "Stationery",
+          "link": "https://media.officedepot.com/images/f_auto,q_auto,e_sharpen,h_450/products/9942929/9942929"
+        },
+        {
+            "id": 2,
+          "item": "Wireless Headphones",
+          "category": "Electronics",
+          "link": "https://media.wired.com/photos/66abec9ccb172c2e5de763bf/master/w_960,c_limit/Edifier-Stax-Spirit-S5-Headphones-Offwhite-Background-SOURCE-Amazon.jpg"
+        },
+        {
+            "id": 3,
+          "item": "Coffee Mug",
+          "category": "Kitchenware",
+          "link": "https://cb2.scene7.com/is/image/CB2/CastTanRctvMug12ozSHF23/$web_product_hero$&/240215085219/cast-tan-coffee-mug.jpg"
+        },
+        {
+            "id": 4,
+          "item": "LED Flashlight",
+          "category": "Tools",
+          "link": "https://www.imalentstore.com/cdn/shop/products/imalent-ms12-led-flashlightimalent-770694_1024x1024.jpg?v=1703675345"
+        },
+        {
+          "id": 5,
+          "item": "Pocket Knife",
+          "category": "Outdoor Gear",
+          "link": "https://tacticagear.com/cdn/shop/products/K100-Black-SML.png?v=1668137432&width=1920"
+        }
+      ]      
+}

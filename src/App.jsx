@@ -4,17 +4,20 @@ import {useState, createContext} from "react" //Step 1
 import {BrowserRouter, Routes,Route} from "react-router-dom";
 import NavBar from './Components/NavBar';
 import Home from "./Components/Home"
-import {books} from "./Model/books.json"; //Step2
-import Books from './Components/Books';
+import {items} from "./Model/items.json"; //Step2
+import AboutUs from "./Components/AboutUs";
 import ContactUs from "./Components/ContactUs";
+import Login from "./Components/Login"
+import Register from "./Components/Register"
 export const DataContext=createContext(""); //Step3
 export default function App() {
-  const [logStatus,setLogStatus]=useState(0); //Step4
-  const [booklist,setBookList]=useState(books); //Step 5
+
+  const [itemList,setItemList]=useState(items); //Step 5
+
   return (
-    <div>
-    <DataContext.Provider value={{logStatus:logStatus, setLogStatus:setLogStatus,
-      booklist:booklist,setBookList:setBookList}}>
+    <div><DataContext.Provider value={{itemList:itemList,setItemList:setItemList}}>
+
+
     <div className='w-[100vw] h-[120vh] bg-amber-100'>
           <NavBar/>    
       <div className='text-center'>
@@ -22,8 +25,10 @@ export default function App() {
           <Routes>
           <Route path="/*" element={<Home/>}/>
           <Route path="/Home" element={<Home/>}/>
-          <Route path="/Books" element={<Books/>}/>
+          <Route path="/AboutUs" element={<AboutUs/>}/>
           <Route path="/ContactUs" element={<ContactUs/>}/>
+          <Route path="/Login" element={<Login/>}/>
+          <Route path="/Register" element={<Register/>}/>
           </Routes>
         </BrowserRouter>
       </div>

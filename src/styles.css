@@ -1,1 +1,30 @@
 @import "tailwindcss";
+.column {
+    float: left;
+    width: 50%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  #itemsdisplay {
+    color: black;
+    size: 14px;
+  }
+  #itemsdisplay:hover {
+    color: gray;
+    size: 14px;
+
+  }
+  .center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  .headertext{
+    font-size: 40px;
+  }
