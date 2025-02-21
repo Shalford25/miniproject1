@@ -4,12 +4,18 @@ const [uname,setUname]=useState("");
 const [pwd, setPwd]=useState("");
 const [loginStatus, setLogin] = useState((sessionStorage.getItem("logged")!=null?sessionStorage.getItem(""):0));
 function check(){
-    if(uname.trim()==="user1"  && pwd.trim() === "test") alert("You have logged in");
+    if(uname.trim()==="user1"  && pwd.trim() === "test"){
+        sessionStorage.setItem("logged", 1);
+        setLogin(1);
+        alert("You have logged in");
+    } 
     else alert("Your information is incorrect");
     }
-    return(
-      
-                <div>
+    function logout(){
+        setLogin(0);
+        sessionStorage.setItem("logged", 0);
+      }
+    var login=<div>
                 <h1 class="headertext">Please Enter Login Information</h1>
                 <div>
                 <h2>Please enter Username: </h2> 
@@ -19,7 +25,13 @@ function check(){
                 <br></br>
                 <input className="border-2" type="button" value="Login" onClick={check}/>
                 </div>
-                </div>
+    </div>
+    var logoutUser=<div>
+    <h1 class="headertext">You are logged in</h1>
+    <input type="button" value="Logout" onClick={logout}/>
+    </div>
+    return(
+        <div>{loginStatus==0?login:logoutUser}</div>          
     )
             
     
