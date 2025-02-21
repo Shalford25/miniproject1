@@ -1,4 +1,4 @@
-import {useState, useContext} from "react";// Step 1
+import {useState} from "react";// Step 1
 export default function Register(){
     const [fname,setFname]=useState("");
     const [lname,setLname]=useState("");
@@ -30,7 +30,7 @@ export default function Register(){
     return(
       
                 <div>
-                <h1>Future Home of Register</h1>
+                <h1 class="headertext">Please Sign Up</h1>
                 <div>
                 <p>First Name: </p>
                 <input className="border-2" type="text" id="fname" value={fname} onChange={(e)=>{setFname(e.target.value)}}/>

@@ -10,7 +10,7 @@ function check(){
     return(
       
                 <div>
-                <h1>Please Enter Login Information</h1>
+                <h1 class="headertext">Please Enter Login Information</h1>
                 <div>
                 <h2>Please enter Username: </h2> 
                 <input className="border-2" type="text" id="uname" value={uname} onChange={(e)=>{setUname(e.target.value)}}/>

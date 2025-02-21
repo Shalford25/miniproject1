@@ -2,7 +2,7 @@ export default function AboutUs(){
     return(
       
                 <div>
-                <h1>Future Home of About Us</h1>
+                <h1>Imagine this describes me in vivid detail</h1>
                 </div>
     )
             
