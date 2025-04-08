@@ -62,7 +62,7 @@ export default function Register() {
       const city = document.getElementById("city").value;
 
       // Send data to the server
-      fetch("https://exp-server-mini-proj2.vercel.app/create", {
+      fetch("https://exp-server-mini-proj2.vercel.app/users/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -74,7 +74,7 @@ export default function Register() {
           zcode,
           uname,
           password_hash: pwd,
-          role, // Selected role
+          role,
         }),
       })
         .then((response) => {
