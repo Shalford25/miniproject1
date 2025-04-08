@@ -81,7 +81,7 @@ export default function Home() {
       return;
     }
 
-    fetch(`https://exp-server-mini-proj2.vercel.app/shop/deleterecord:${product_id}`, {
+    fetch(`https://exp-server-mini-proj2.vercel.app/shop/deleterecord/${product_id}`, {
       method: "DELETE",
     })
       .then((response) => {
@@ -103,23 +103,23 @@ export default function Home() {
   const updateProduct = (product) => {
     const newProductName = prompt("Enter the new product name:", product.product_name);
     const newPrice = parseFloat(prompt("Enter the new product price:", product.price));
-    const newStockQuality = parseInt(
+    const newStockQuantity = parseInt(
       prompt("Enter the new stock quantity:", product.stock_quantity),
       10
     );
 
-    if (!newProductName || isNaN(newPrice) || isNaN(newStockQuality)) {
+    if (!newProductName || isNaN(newPrice) || isNaN(newStockQuantity)) {
       alert("Invalid input. Please provide valid product details.");
       return;
     }
 
-    fetch(`https://exp-server-mini-proj2.vercel.app/shop/updaterecord:${product.product_id}`, {
+    fetch(`https://exp-server-mini-proj2.vercel.app/shop/updaterecord/${product.product_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         product_name: newProductName,
         price: newPrice,
-        stock_quantity: newStockQuality,
+        stock_quantity: newStockQuantity,
       }),
     })
       .then((response) => {
@@ -128,7 +128,7 @@ export default function Home() {
           setProducts((prevProducts) =>
             prevProducts.map((p) =>
               p.product_id === product.product_id
-                ? { ...p, product_name: newProductName, price: newPrice, stock_quantity: newStockQuality }
+                ? { ...p, product_name: newProductName, price: newPrice, stock_quantity: newStockQuantity }
                 : p
             )
           );
