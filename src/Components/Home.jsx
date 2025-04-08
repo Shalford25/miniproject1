@@ -6,7 +6,7 @@ export default function Home() {
 
   // Fetch products from the server
   useEffect(() => {
-    fetch("https://exp-server-mini-proj2.vercel.app/products")
+    fetch("https://exp-server-mini-proj2.vercel.app/shop")
       .then((response) => response.json())
       .then((data) => {
         setProducts(data.rows); // Populate products from the response
