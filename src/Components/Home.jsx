@@ -47,7 +47,9 @@ export default function Home() {
             <p><strong>Product ID:</strong> {hoveredProduct.product_id}</p>
             <p>
               <strong>Price:</strong> $
-              {hoveredProduct.price != null ? hoveredProduct.price.toFixed(2) : "N/A"}
+              {typeof hoveredProduct.price === "number" && !isNaN(hoveredProduct.price)
+                ? hoveredProduct.price.toFixed(2)
+                : "N/A"}
             </p>
             <p><strong>Stock Quantity:</strong> {hoveredProduct.stock_quality}</p>
             <p><strong>Created At:</strong> {new Date(hoveredProduct.created_at).toLocaleString()}</p>
