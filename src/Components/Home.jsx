@@ -148,22 +148,24 @@ export default function Home() {
       <div className="column bg-amber-100 h-[120vh]">
         <h1 className="headertext">Products</h1>
         {isAdmin && (
-          <>
-            <button
-              className="border-2 bg-green-500 text-white px-4 py-2 mb-4"
-              onClick={addProduct}
+          <button
+            className="border-2 bg-green-500 text-white px-4 py-2 mb-4"
+            onClick={addProduct}
+          >
+            Add Product
+          </button>
+        )}
+        <ul>
+          {products.map((product) => (
+            <li
+              id="product-display"
+              key={product.product_id}
+              onMouseEnter={() => setHoveredProduct(product)}
+              className="cursor-pointer hover:text-blue-500"
             >
-              Add Product
-            </button>
-            <ul>
-              {products.map((product) => (
-                <li
-                  id="product-display"
-                  key={product.product_id}
-                  onMouseEnter={() => setHoveredProduct(product)}
-                  className="cursor-pointer hover:text-blue-500"
-                >
-                  {product.product_name}
+              {product.product_name}
+              {isAdmin && (
+                <>
                   <button
                     className="border-2 bg-yellow-500 text-white px-2 py-1 ml-2"
                     onClick={() => updateProduct(product)}
@@ -176,11 +178,11 @@ export default function Home() {
                   >
                     Delete
                   </button>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
       </div>
 
       {/* Right Column: Product Details */}
