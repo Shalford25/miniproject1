@@ -31,6 +31,7 @@ export default function Login() {
   function logout() {
     setLogin(0);
     sessionStorage.setItem("logged", 0);
+    sessionStorage.removeItem("username");
   }
 
   const login = (
