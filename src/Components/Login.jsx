@@ -11,22 +11,21 @@ export default function Login() {
       const data = await response.json();
 
       const user = data.rows.find(
-        (user) => user.username === uname.trim() && user.password === pwd.trim()
+        (user) => user.username === uname.trim() && user.password_hash === pwd.trim()
       );
 
       if (user) {
         sessionStorage.setItem("logged", 1);
         setLogin(1);
         alert("You have logged in");
-
       } else {
         alert("Your information is incorrect");
       }
-
     } catch (error) {
       console.error("Error during login:", error);
       alert("An error occurred while trying to log in.");
-    }}
+    }
+  }
 
   function logout() {
     setLogin(0);
