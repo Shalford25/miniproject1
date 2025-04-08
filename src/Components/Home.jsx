@@ -9,7 +9,11 @@ export default function Home() {
     fetch("https://exp-server-mini-proj2.vercel.app/shop")
       .then((response) => response.json())
       .then((data) => {
-        setProducts(data.rows); // Populate products from the response
+        const normalizedProducts = data.rows.map((product) => ({
+          ...product,
+          price: parseFloat(product.price) || 0, // Ensure price is a number
+        }));
+        setProducts(normalizedProducts);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
