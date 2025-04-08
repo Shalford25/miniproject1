@@ -1,25 +1,55 @@
-import {useState, useContext} from "react";// Step 1
-import {DataContext} from "../App" //Step 2
-export default function Home(){
+import { useState, useEffect } from "react";
 
-  const {itemList}=useContext(DataContext); //Step 3
-  const [hoveredImage, setHoveredImage] = useState("https://media.officedepot.com/images/f_auto,q_auto,e_sharpen,h_450/products/9942929/9942929");
+export default function Home() {
+  const [products, setProducts] = useState([]);
+  const [hoveredProduct, setHoveredProduct] = useState(null); // Store the currently hovered product
 
-    return(
-        <div className="row">
-        <div className="column bg-amber-100 h-[120vh]"><h1 class="headertext">Items: </h1>
-        <ul>{itemList.map(((items,index)=> 
-          <li id="itemsdisplay" onMouseEnter={() => setHoveredImage(itemList[index].link)} key={index}> 
-          {items.item}</li>))}
+  // Fetch products from the server
+  useEffect(() => {
+    fetch("https://exp-server-mini-proj2.vercel.app/products")
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data.rows); // Populate products from the response
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+        alert("Failed to fetch products.");
+      });
+  }, []);
+
+  return (
+    <div className="row">
+      {/* Left Column: Product Names */}
+      <div className="column bg-amber-100 h-[120vh]">
+        <h1 className="headertext">Products</h1>
+        <ul>
+          {products.map((product) => (
+            <li
+              id="product-display"
+              key={product.product_id}
+              onMouseEnter={() => setHoveredProduct(product)} // Set the hovered product
+              className="cursor-pointer hover:text-blue-500"
+            >
+              {product.product_name}
+            </li>
+          ))}
         </ul>
-        </div>
+      </div>
 
-        <div className="column bg-gray-50 h-[120vh]"><h1 class="headertext">Image Descriptions</h1>
-        <img src={hoveredImage} alt="Hovered Image" class="center"/>
-        </div>
-      </div> 
-    )
-            
-    
-    
-    }
+      {/* Right Column: Product Details */}
+      <div className="column bg-gray-50 h-[120vh]">
+        <h1 className="headertext">Product Details</h1>
+        {hoveredProduct ? (
+          <div>
+            <p><strong>Product ID:</strong> {hoveredProduct.product_id}</p>
+            <p><strong>Price:</strong> ${hoveredProduct.price.toFixed(2)}</p>
+            <p><strong>Stock Quantity:</strong> {hoveredProduct.stock_quality}</p>
+            <p><strong>Created At:</strong> {new Date(hoveredProduct.created_at).toLocaleString()}</p>
+          </div>
+        ) : (
+          <p>Hover over a product to see its details.</p>
+        )}
+      </div>
+    </div>
+  );
+}
