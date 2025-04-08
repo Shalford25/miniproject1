@@ -1,9 +1,7 @@
-import {useState, useContext} from "react";// Step 1
-import {DataContext} from "../App" //Step 2
+import {useContext} from "react";
+import {DataContext} from "../App"
 export default function NavBar(){
-const [uname,setUname]=useState("");
-const [pwd, setPwd]=useState("");
-const {logStatus,setLogStatus}=useContext(DataContext); //Step 3
+const {logStatus,setLogStatus}=useContext(DataContext);
 
   return(
 

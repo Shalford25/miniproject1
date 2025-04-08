@@ -16,7 +16,7 @@ export default function Login() {
 
       if (user) {
         sessionStorage.setItem("logged", 1);
-        sessionStorage.setItem("username", user.username); // Store the username in sessionStorage
+        sessionStorage.setItem("username", user.username);
         setLogin(1);
         alert("You have logged in");
       } else {
