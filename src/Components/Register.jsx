@@ -74,7 +74,7 @@ export default function Register() {
           zcode,
           uname,
           password_hash: pwd,
-          role, // Selected role ID
+          role,
         }),
       })
         .then((response) => {
