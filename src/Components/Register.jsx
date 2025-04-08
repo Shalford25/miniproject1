@@ -18,7 +18,7 @@ export default function Register() {
       .then((data) => {
         setRoles(data.rows); // Populate roles from the response
         if (data.rows.length > 0) {
-          setRole(data.rows[0].id); // Set default role to the first one
+          setRole(data.rows[0].role_id); // Set default role to the first one
         }
       })
       .catch((error) => {
@@ -74,7 +74,7 @@ export default function Register() {
           zcode,
           uname,
           password_hash: pwd,
-          role,
+          role, // Selected role ID
         }),
       })
         .then((response) => {
@@ -176,8 +176,8 @@ export default function Register() {
           onChange={(e) => setRole(e.target.value)}
         >
           {roles.map((r) => (
-            <option key={r.id} value={r.id}>
-              {r.name || r.id} {/* Display role name if available */}
+            <option key={r.role_id} value={r.role_id}>
+              {r.role_name} {/* Display role name */}
             </option>
           ))}
         </select>
