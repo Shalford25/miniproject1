@@ -43,9 +43,9 @@ export default function Home() {
   const addProduct = () => {
     const product_name = prompt("Enter the product name:");
     const price = parseFloat(prompt("Enter the product price:"));
-    const stock_quality = parseInt(prompt("Enter the stock quantity:"), 10);
+    const stock_quantity = parseInt(prompt("Enter the stock quantity:"), 10);
 
-    if (!product_name || isNaN(price) || isNaN(stock_quality)) {
+    if (!product_name || isNaN(price) || isNaN(stock_quantity)) {
       alert("Invalid input. Please provide valid product details.");
       return;
     }
@@ -56,7 +56,7 @@ export default function Home() {
       body: JSON.stringify({
         product_name,
         price,
-        stock_quality,
+        stock_quantity,
       }),
     })
       .then((response) => {
@@ -104,7 +104,7 @@ export default function Home() {
     const newProductName = prompt("Enter the new product name:", product.product_name);
     const newPrice = parseFloat(prompt("Enter the new product price:", product.price));
     const newStockQuality = parseInt(
-      prompt("Enter the new stock quantity:", product.stock_quality),
+      prompt("Enter the new stock quantity:", product.stock_quantity),
       10
     );
 
@@ -119,7 +119,7 @@ export default function Home() {
       body: JSON.stringify({
         product_name: newProductName,
         price: newPrice,
-        stock_quality: newStockQuality,
+        stock_quantity: newStockQuality,
       }),
     })
       .then((response) => {
@@ -128,7 +128,7 @@ export default function Home() {
           setProducts((prevProducts) =>
             prevProducts.map((p) =>
               p.product_id === product.product_id
-                ? { ...p, product_name: newProductName, price: newPrice, stock_quality: newStockQuality }
+                ? { ...p, product_name: newProductName, price: newPrice, stock_quantity: newStockQuality }
                 : p
             )
           );
@@ -201,7 +201,7 @@ export default function Home() {
                 : "N/A"}
             </p>
             <p>
-              <strong>Stock Quantity:</strong> {hoveredProduct.stock_quality}
+              <strong>Stock Quantity:</strong> {hoveredProduct.stock_quantity}
             </p>
             <p>
               <strong>Created At:</strong>{" "}
